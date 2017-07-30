@@ -1,0 +1,5 @@
+.scmversion
+dist/
+!dist/img/
+node_modules/
+npm-debug.log

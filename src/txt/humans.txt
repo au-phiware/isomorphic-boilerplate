@@ -1,0 +1,12 @@
+# TEAM
+
+    Corin Lawson
+          @ responsight.com
+
+# TECHNOLOGY COLOPHON
+
+    ES2015, HTML5, Less
+    Rollup, Buble, Bootstrap
+    union, broadway, director, tectonic.js
+    Vim
+
