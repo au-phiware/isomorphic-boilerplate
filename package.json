@@ -21,6 +21,7 @@
     "coverage": "rm -rf coverage/* && istanbul cover --report json node_modules/.bin/vows -- --spec",
     "postcoverage": "remap-istanbul -i coverage/coverage-final.json -o coverage/coverage-remapped.json -b dist && remap-istanbul -i coverage/coverage-final.json -o coverage/coverage-remapped.lcov -t lcovonly -b dist && remap-istanbul -i coverage/coverage-final.json -o coverage/coverage-remapped -t html -b dist",
     "ci": "npm run coverage && codecov < coverage/coverage-remapped.lcov",
+    "start:dev": "run-p -r watch start",
     "start": "node dist/start.js"
   },
   "repository": {
