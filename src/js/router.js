@@ -3,18 +3,20 @@ import path from 'path';
 import mime from 'mime';
 import util from 'util';
 import Logger from './logger';
-import { http } from 'director';
+import { http } from 'tarantino';
 import master from '../html/index.html';
 import robots from '../txt/robots.txt';
 import humans from '../txt/humans.txt';
 
 export default class Router {
     constructor() {
-        http.Router.call(this);
-        this.get(/\/(index.html)?$/, this.root);
-        this.get(/\/(robots|humans).txt$/, this.txt);
-        this.get(/\/(.*)\.(js|css)(\.map)?$/, this.dist);
-        this.get(/\/(img\/.*)\.(png|jpg|svg)$/, this.dist);
+        http.Router.call(this, {
+            '/(index\\.html)?$': { get: this.root },
+            '/robots\\.txt': { get: this.txt },
+            '/(humans|robots)\\.txt': { get: this.txt },
+            '/*[.](js|css)([.]map)?$': { get: this.dist },
+            '/(img/.+)[.](png|jpg|svg)$': { get: this.dist }
+        });
     }
 
     dist(reqpath, reqext, mapext) {

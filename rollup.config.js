@@ -44,7 +44,7 @@ export default [
         ],
         external: [
             'broadway',
-            'director',
+            'tarantino',
             'mime',
             'spdy',
             'spdy-transport',
