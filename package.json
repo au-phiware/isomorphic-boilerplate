@@ -13,7 +13,7 @@
     "lint:js": "eslint src/js test/js rollup.conf.js",
     "lessc": "lessc --strict-math=on --source-map=dist/index.css.map --source-map-rootpath=. \"--source-map-basepath=$PWD\" --include-path=src/less:node_modules/bootstrap/less --clean-css",
     "build:less": "npm run lessc -- src/less/index.less dist/index.css",
-    "watch:less": "lesser-watch -c 'npm run lessc -- --source-map-map-inline -' -e src/less/index.less -d dist",
+    "watch:less": "lesser-watch -c 'npm run --silent lessc -- --source-map-map-inline -' -e src/less/index.less -d dist",
     "lint:less": "npm run lessc -- --lint src/less/index.less",
     "pretest": "npm run build",
     "test": "vows --spec",
