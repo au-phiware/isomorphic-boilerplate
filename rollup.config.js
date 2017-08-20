@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs';
-import replace from 'rollup-plugin-replace';
+import replace from 'rollup-plugin-re';
 import buble from 'rollup-plugin-buble';
 import json from 'rollup-plugin-json';
 import cjs from 'rollup-plugin-commonjs';
@@ -22,8 +22,9 @@ export default [
         plugins: [
             replace({
                 include: 'src/js/**/*.js',
-                values: {
-                    IS_BROWSER: 'false'
+                defines: {
+                    IS_BROWSER: false,
+                    IS_SERVER:  true
                 }
             }),
             literal({
@@ -83,8 +84,9 @@ export default [
         plugins: [
             replace({
                 include: 'src/js/**',
-                values: {
-                    IS_BROWSER: 'true'
+                defines: {
+                    IS_BROWSER: true,
+                    IS_SERVER:  false
                 }
             }),
             buble({
